@@ -13,6 +13,7 @@ import Sidebar from './Sidebar';
 import '@xyflow/react/dist/style.css';
 import { useSelector } from 'react-redux';
 import SidebarForChart from './SidebarForChart';
+import toast from 'react-hot-toast';
 
 const initialNodes = [
   {
@@ -48,6 +49,10 @@ const DnDFlow = () => {
     (event) => {
       event.preventDefault();
       if (!type) return;
+      if(type === "Start"){
+        toast.error('Start node exists')
+        return
+      }
       const position = screenToFlowPosition({
         x: event.clientX,
         y: event.clientY,

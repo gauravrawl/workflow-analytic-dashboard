@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react-refresh/only-export-components */
-
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -34,7 +33,7 @@ import {
       },
     },
   };
-  const BarGraph = ({selectedYear}) => {
+  const BarGraph = () => {
   const labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"];
   const data = {
     labels,
@@ -42,7 +41,6 @@ import {
       {
         label: "Repost",
         data: [2, 5, 6, 7, 8, 4, 4],
-  
         backgroundColor: "#4AB58E",
       },
       {
@@ -52,6 +50,7 @@ import {
       },
     ],
   };
+
 
     return (
       <>

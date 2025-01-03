@@ -56,6 +56,20 @@ import {
           backgroundColor: "rgba(255, 207, 0, 0.2)",
           tension: 0.4, // For smoother curves
         },
+        {
+            label: "Repost",
+            data: [2, 5, 6, 7, 8, 4, 4],
+            borderColor: "#4AB58E",
+            backgroundColor: "rgba(74, 181, 142, 0.2)",
+            tension: 0.4, // For smoother curves
+          },
+          {
+            label: "New Post",
+            data: [ 7, 3, 9, 3, 8, 6],
+            borderColor: "#FFCF00",
+            backgroundColor: "rgba(255, 207, 0, 0.2)",
+            tension: 0.4, // For smoother curves
+          },
       ],
     };
   

@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 import { setType } from "../Store/slice/workSlice";
 import { useDispatch } from "react-redux";
 import NodeSelectionBar from "./NodeSelectionBar";
-import BarGraph from "./Analytics/BarGraph";
-import LineChart from "./Analytics/LineChart";
 
 const Sidebar = ({ selectedNode, updateNode }) => {
   const [formData, setFormData] = useState({
@@ -47,15 +45,6 @@ const Sidebar = ({ selectedNode, updateNode }) => {
     }
   };
 
-  // if (!selectedNode) {
-  //   return (
-  //     <aside style={{ padding: '10px', borderLeft: '1px solid #ddd', width: '300px' }}>
-  //       <p>Select a node to edit its properties.</p>
-  //     </aside>
-  //   );
-  // }
-
-
   const onDragStart = (event, type) => {
     dispatch(setType(type))
     event.dataTransfer.setData('application/reactflow', type);
@@ -63,17 +52,17 @@ const Sidebar = ({ selectedNode, updateNode }) => {
   };
 
   return (
-    <aside>
+    <aside style={{padding: '1rem'}}>
       <NodeSelectionBar text={'Start'} onDragStart={onDragStart}/>
       <NodeSelectionBar text={'Decision'} onDragStart={onDragStart}/>
       <NodeSelectionBar text={'Task'} onDragStart={onDragStart}/>
       <NodeSelectionBar text={'End'} onDragStart={onDragStart}/>
 {
-  !selectedNode ? <aside style={{ padding: '10px', borderLeft: '1px solid #ddd', width: '300px' }}>
+  !selectedNode ? <aside style={{ padding: '10px', borderLeft: '1px solid #ddd', width: '100%' }}>
          <p>Select a node to edit its properties.</p>
        </aside>  : 
       <form onSubmit={handleSubmit}>
-        <div style={{ marginBottom: '10px' }}>
+        <div style={{ marginBottom: '10px'}}>
           <label>
             Name:
             <input
