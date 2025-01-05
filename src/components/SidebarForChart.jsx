@@ -3,8 +3,9 @@ import LineGraph from "./Analytics/LineChart"
 import PieChart from "./Analytics/PieChart"
 
 const SidebarForChart = () => {
+    
   return (
-    <aside>
+    <aside className="charts-sidebar">
       <BarGraph/>
       <LineGraph/>
       <PieChart/>

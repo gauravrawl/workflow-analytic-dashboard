@@ -11,6 +11,7 @@ import {
     Legend,
   } from "chart.js";
   import { Bar } from "react-chartjs-2";
+import { useSelector } from "react-redux";
 
   ChartJS.register(
     CategoryScale,
@@ -34,19 +35,15 @@ import {
     },
   };
   const BarGraph = () => {
-  const labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"];
+    const { workflowData } = useSelector((state) => state.workflow);
+    const labels = workflowData?.map((node) => node.type);
   const data = {
     labels,
     datasets: [
       {
-        label: "Repost",
-        data: [2, 5, 6, 7, 8, 4, 4],
+        label: "Nodes",
+        data: [2, 5, 6, 7, 8, 4, 4], 
         backgroundColor: "#4AB58E",
-      },
-      {
-        label: "New Post",
-        data: [4, 7, 3, 9, 3, 8, 6],
-        backgroundColor: "#FFCF00",
       },
     ],
   };

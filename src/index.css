@@ -2,6 +2,7 @@
   flex-direction: column;
   display: flex;
   height: 100%;
+  touch-action: none;
 }
 
 .dndflow aside {
@@ -52,6 +53,8 @@
 }
 
 
+
+
 /**  Node selection*/ 
 .node-container {
   background-color: #151520c8;
@@ -68,3 +71,12 @@
   inset 3px 3px 10px rgba(0,0,0,1),
   inset -1px -1px 6px rgba(255, 255, 255, 0.4);
 }
+
+
+@media screen and (max-width: 580px) {
+  .charts-sidebar{
+display: none;
+  }
+}
+
+

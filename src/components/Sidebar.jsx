@@ -98,7 +98,7 @@ const Sidebar = ({ selectedNode, updateNode }) => {
             />
           </label>
         </div>
-        <button type="submit" style={{ padding: '5px 10px' }}>
+        <button type="submit" style={{ padding: '5px 10px', background: 'yellow', border: 'none' }}>
           Save
         </button>
       </form>

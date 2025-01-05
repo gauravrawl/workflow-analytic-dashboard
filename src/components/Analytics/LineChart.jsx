@@ -13,6 +13,7 @@ import {
     Legend,
   } from "chart.js";
   import { Line } from "react-chartjs-2";
+import { useSelector } from "react-redux";
   
   ChartJS.register(
     CategoryScale,
@@ -32,44 +33,25 @@ import {
       },
       title: {
         display: true,
-        text: "Workflow Analytics",
+        // text: "Workflow Analytics",
       },
     },
   };
   
-  const LineGraph = ({ selectedYear }) => {
-    const labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"];
+  const LineGraph = () => {
+    const { workflowData } = useSelector((state) => state.workflow);
+    const labels = workflowData?.map((node) => node.type);
     const data = {
       labels,
       datasets: [
         {
-          label: "Repost",
+          label: "Nodes",
           data: [2, 5, 6, 7, 8, 4, 4],
           borderColor: "#4AB58E",
           backgroundColor: "rgba(74, 181, 142, 0.2)",
-          tension: 0.4, // For smoother curves
+          tension: 0.4, 
         },
-        {
-          label: "New Post",
-          data: [4, 7, 3, 9, 3, 8, 6],
-          borderColor: "#FFCF00",
-          backgroundColor: "rgba(255, 207, 0, 0.2)",
-          tension: 0.4, // For smoother curves
-        },
-        {
-            label: "Repost",
-            data: [2, 5, 6, 7, 8, 4, 4],
-            borderColor: "#4AB58E",
-            backgroundColor: "rgba(74, 181, 142, 0.2)",
-            tension: 0.4, // For smoother curves
-          },
-          {
-            label: "New Post",
-            data: [ 7, 3, 9, 3, 8, 6],
-            borderColor: "#FFCF00",
-            backgroundColor: "rgba(255, 207, 0, 0.2)",
-            tension: 0.4, // For smoother curves
-          },
+        
       ],
     };
   

@@ -5,15 +5,16 @@ import {
   useNodesState,
   useEdgesState,
   Controls,
-  Position,
+  // Position,  
   useReactFlow,
   Background,
 } from '@xyflow/react';
 import Sidebar from './Sidebar';
 import '@xyflow/react/dist/style.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import SidebarForChart from './SidebarForChart';
 import toast from 'react-hot-toast';
+import { setWorkflowData } from '../Store/slice/workSlice';
 
 const initialNodes = [
   {
@@ -21,7 +22,8 @@ const initialNodes = [
     type: 'Start',
     data: { label: 'Start' },
     position: { x: 250, y: 5 },
-    sourcePosition: Position.Right,
+    sourcePosition: 'right',
+    
   },
 ];
 
@@ -35,6 +37,8 @@ const DnDFlow = () => {
   const { screenToFlowPosition } = useReactFlow();
   const { type } = useSelector((state) => state.workflow)
   const [selectedNode, setSelectedNode] = useState(null);
+
+  const dispatch = useDispatch()
   const onConnect = useCallback(
     (params) => setEdges((eds) => addEdge(params, eds)),
     [setEdges],
@@ -64,8 +68,9 @@ const DnDFlow = () => {
         data: { label: `${type}` },
       };
       setNodes((nds) => nds.concat(newNode));
+      dispatch(setWorkflowData(nodes))
     },
-    [screenToFlowPosition, setNodes, type],
+    [dispatch, nodes, screenToFlowPosition, setNodes, type],
   );
 
   /** Storing data to local */
@@ -114,6 +119,7 @@ const DnDFlow = () => {
           <Background />
         </ReactFlow>
       </div>
+      
     <SidebarForChart  />
     </div>
   );
