@@ -30,7 +30,7 @@ import { useSelector } from "react-redux";
       },
       title: {
         display: true,
-        text: "Workflow Alnytics",
+        text: "Workflow Analytics",
       },
     },
   };
