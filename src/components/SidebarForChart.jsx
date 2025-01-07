@@ -9,6 +9,7 @@ const SidebarForChart = () => {
       <BarGraph/>
       <LineGraph/>
       <PieChart/>
+      {/* <PieChart/> */}
     </aside>
   )
 }
